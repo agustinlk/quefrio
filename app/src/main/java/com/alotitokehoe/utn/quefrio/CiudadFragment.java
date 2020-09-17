@@ -42,20 +42,6 @@ public class CiudadFragment extends Fragment {
         //Se obtiene el objeto vista a partir del fragment, luego se puede modificar para despues retornarlo
         View v = inflater.inflate(R.layout.ciudad_fragment, container, false);
 
-        Button botonNueva = (Button) v.findViewById(R.id.btnNueva);
-        botonNueva.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                abrirEditor(v);
-            }
-        });
-
-        Bundle params = getArguments();
-        String respuesta = "Nuevo";
-        if(params != null) {
-            respuesta = params.getString("respuesta");
-        }
-        Toast.makeText(getActivity().getApplicationContext(),respuesta,Toast.LENGTH_SHORT).show();
         // Instancia del ListView
         ciudadesList = (ListView) v.findViewById(R.id.ciudades_list);
         ciudadesAdapter = new CiudadesAdapter(getActivity(),CiudadesRepository.getInstance().getCiudades());
@@ -63,14 +49,5 @@ public class CiudadFragment extends Fragment {
 
         return v;
     }
-
-    public void abrirEditor(View v){
-        EditorFragment editorFragment = new EditorFragment();
-        getActivity().getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.frameLayout, editorFragment).commit();
-    }
-
-
 
 }

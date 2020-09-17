@@ -8,13 +8,35 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="233dp"
+        android:layout_height="98dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#DCEDC8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></FrameLayout>
+
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="@string/btn_agregar"
+        android:onClick="onClicAgregarVolver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="@string/btn_cancelar"
+        android:onClick="onClicVolver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAgregar"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
