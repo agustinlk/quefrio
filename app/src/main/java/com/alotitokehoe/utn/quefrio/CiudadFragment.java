@@ -3,12 +3,15 @@ package com.alotitokehoe.utn.quefrio;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class CiudadFragment extends Fragment {
@@ -22,8 +25,7 @@ public class CiudadFragment extends Fragment {
 
     public static CiudadFragment newInstance() {
         CiudadFragment fragment = new CiudadFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
+        //Setup parameters
         return fragment;
     }
 
@@ -31,36 +33,44 @@ public class CiudadFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
+            //get parameters
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.ciudad_fragment, container, false);
+        //Se obtiene el objeto vista a partir del fragment, luego se puede modificar para despues retornarlo
+        View v = inflater.inflate(R.layout.ciudad_fragment, container, false);
+
+        Button botonNueva = (Button) v.findViewById(R.id.btnNueva);
+        botonNueva.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                abrirEditor(v);
+            }
+        });
+
+        Bundle params = getArguments();
+        String respuesta = "Nuevo";
+        if(params != null) {
+            respuesta = params.getString("respuesta");
+        }
+        Toast.makeText(getActivity().getApplicationContext(),respuesta,Toast.LENGTH_SHORT).show();
         // Instancia del ListView
-        ciudadesList = (ListView) root.findViewById(R.id.ciudades_list);
-        /*String[] nombresCiudades = {
-                "Argentina",
-                "China",
-                "España",
-                "Lituania",
-                "Estados Unidos",
-                "Islandia",
-                "Rusia",
-                "Sudafrica",
-                "Paraguay",
-                "Uruguay"
-        };*/
-        /*mCiudadesAdapter = new ArrayAdapter<>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                nombresCiudades);*/
-
+        ciudadesList = (ListView) v.findViewById(R.id.ciudades_list);
         ciudadesAdapter = new CiudadesAdapter(getActivity(),CiudadesRepository.getInstance().getCiudades());
-
         ciudadesList.setAdapter(ciudadesAdapter);
 
-        return root;
+        return v;
     }
+
+    public void abrirEditor(View v){
+        EditorFragment editorFragment = new EditorFragment();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frameLayout, editorFragment).commit();
+    }
+
+
+
 }

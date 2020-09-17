@@ -3,4 +3,11 @@
     <string name="app_titulo">Que frio!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nueva_ciudad">Nueva ciudad</string>
+
+    <!-- Editor -->
+    <string name="titulo_editor">Agregar Ciudad</string>
+    <string name="emp_text_ciudad">Ingrese una ciudad</string>
+    <string name="btn_agregar">Agregar</string>
+    <string name="btn_cancelar">Cancelar</string>
 </resources>
