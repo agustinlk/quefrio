@@ -5,14 +5,14 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CiudadFragment">
+    tools:context=".CiudadesFragment">
 
     <ListView
         android:id="@+id/ciudades_list"
         android:layout_width="405dp"
         android:layout_height="636dp"
+        android:listSelector="@drawable/item_list"
         android:divider="@null">
-
     </ListView>
 
 

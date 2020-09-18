@@ -33,7 +33,7 @@ public class EditActivity extends AppCompatActivity {
         Intent intentMain = new Intent(this, MainActivity.class);
 
         EditText nombreNuevaCiudad = editorFragment.getView().findViewById(R.id.editNombreCiudad);
-        intentMain.putExtra("respuesta", "Ciudad " + nombreNuevaCiudad.getText());
+        intentMain.putExtra("respuesta", nombreNuevaCiudad.getText().toString());
 
         startActivity(intentMain);
     }
@@ -41,7 +41,7 @@ public class EditActivity extends AppCompatActivity {
     public void onClicVolver(View v) {
         Intent intentMain = new Intent(this, MainActivity.class);
 
-        intentMain.putExtra("respuesta", "...cancelado...");
+        intentMain.putExtra("respuesta", "cancelado");
 
         startActivity(intentMain);
     }

@@ -31,15 +31,13 @@ public class CiudadesAdapter extends ArrayAdapter<Ciudad> {
 
         // Referencias UI.
         TextView name = (TextView) convertView.findViewById(R.id.tv_name);
-        TextView title = (TextView) convertView.findViewById(R.id.tv_title);
-        TextView company = (TextView) convertView.findViewById(R.id.tv_company);
 
         // Ciudad actual.
         Ciudad ciudad = getItem(position);
 
         // Setup.
         name.setText(ciudad.getNombre());
-        title.setText(ciudad.getTemperatura());
+        //title.setText(ciudad.getTemperatura());
 
         return convertView;
     }
