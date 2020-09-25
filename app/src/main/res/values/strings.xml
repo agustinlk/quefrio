@@ -3,7 +3,8 @@
     <string name="app_titulo">Que frio!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nueva_ciudad">Nueva ciudad</string>
+    <string name="nueva_ciudad">Nueva ciudad</string>label_ciudades_agregadas
+    <string name="label_ciudades_agregadas">Ciudades agregadas usuario: </string>
 
     <!-- Editor -->
     <string name="titulo_editor">Agregar Ciudad</string>

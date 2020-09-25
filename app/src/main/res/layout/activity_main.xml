@@ -23,6 +23,12 @@
             android:onClick="onClicIrEditor"
             android:text="@string/nueva_ciudad" />
 
+        <TextView
+            android:id="@+id/label_agregadas"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:text="@string/label_ciudades_agregadas" />
+
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
